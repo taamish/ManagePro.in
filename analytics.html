@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Donut Pie Chart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f5f5f5;
+        }
+
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            width: 100%;
+            font-weight: bold;
+        }
+
+        .chart-container {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .chart {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(
+                var(--color1) 0% calc(var(--highly-satisfied) * 1%),
+                var(--color2) calc(var(--highly-satisfied) * 1%) calc((var(--highly-satisfied) + var(--satisfied)) * 1%),
+                var(--color3) calc((var(--highly-satisfied) + var(--satisfied)) * 1%) calc((var(--highly-satisfied) + var(--satisfied) + var(--neutral)) * 1%),
+                var(--color4) calc((var(--highly-satisfied) + var(--satisfied) + var(--neutral)) * 1%) calc((var(--highly-satisfied) + var(--satisfied) + var(--neutral) + var(--dissatisfied)) * 1%),
+                var(--color5) calc((var(--highly-satisfied) + var(--satisfied) + var(--neutral) + var(--dissatisfied)) * 1%) 100%
+            );
+        }
+
+        .chart-inner {
+            width: 150px;
+            height: 150px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .inputs {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .inputs label {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .inputs input[type="color"] {
+            margin-left: 20px;
+        }
+
+        .inputs button {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .inputs button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Dynamic Donut Pie Chart</div>
+
+    <div class="chart-container">
+        <div class="chart" style="--highly-satisfied: 45; --satisfied: 30; --neutral: 15; --dissatisfied: 7; --highly-dissatisfied: 3; --color1: #4caf50; --color2: #8bc34a; --color3: #ffeb3b; --color4: #ff9800; --color5: #f44336;"></div>
+        <div class="chart-inner">500</div>
+    </div>
+
+    <div class="inputs">
+        <label>
+            Highly Satisfied (%):
+            <input type="number" id="highlySatisfied" value="45" max="100" min="0">
+        </label>
+        <label>
+            Satisfied (%):
+            <input type="number" id="satisfied" value="30" max="100" min="0">
+        </label>
+        <label>
+            Neutral (%):
+            <input type="number" id="neutral" value="15" max="100" min="0">
+        </label>
+        <label>
+            Dissatisfied (%):
+            <input type="number" id="dissatisfied" value="7" max="100" min="0">
+        </label>
+        <label>
+            Highly Dissatisfied (%):
+            <input type="number" id="highlyDissatisfied" value="3" max="100" min="0">
+        </label>
+        <label>
+            Color for Highly Satisfied:
+            <input type="color" id="color1" value="#4caf50">
+        </label>
+        <label>
+            Color for Satisfied:
+            <input type="color" id="color2" value="#8bc34a">
+        </label>
+        <label>
+            Color for Neutral:
+            <input type="color" id="color3" value="#ffeb3b">
+        </label>
+        <label>
+            Color for Dissatisfied:
+            <input type="color" id="color4" value="#ff9800">
+        </label>
+        <label>
+            Color for Highly Dissatisfied:
+            <input type="color" id="color5" value="#f44336">
+        </label>
+        <button onclick="updateChart()">Update Chart</button>
+    </div>
+
+    <script>
+        function updateChart() {
+            const highlySatisfied = parseFloat(document.getElementById('highlySatisfied').value) || 0;
+            const satisfied = parseFloat(document.getElementById('satisfied').value) || 0;
+            const neutral = parseFloat(document.getElementById('neutral').value) || 0;
+            const dissatisfied = parseFloat(document.getElementById('dissatisfied').value) || 0;
+            const highlyDissatisfied = parseFloat(document.getElementById('highlyDissatisfied').value) || 0;
+
+            const color1 = document.getElementById('color1').value;
+            const color2 = document.getElementById('color2').value;
+            const color3 = document.getElementById('color3').value;
+            const color4 = document.getElementById('color4').value;
+            const color5 = document.getElementById('color5').value;
+
+            const total = highlySatisfied + satisfied + neutral + dissatisfied + highlyDissatisfied;
+
+            if (total !== 100) {
+                alert('The total percentage must equal 100%!');
+                return;
+            }
+
+            const chart = document.querySelector('.chart');
+            chart.style.setProperty('--highly-satisfied', highlySatisfied);
+            chart.style.setProperty('--satisfied', satisfied);
+            chart.style.setProperty('--neutral', neutral);
+            chart.style.setProperty('--dissatisfied', dissatisfied);
+            chart.style.setProperty('--highly-dissatisfied', highlyDissatisfied);
+            chart.style.setProperty('--color1', color1);
+            chart.style.setProperty('--color2', color2);
+            chart.style.setProperty('--color3', color3);
+            chart.style.setProperty('--color4', color4);
+            chart.style.setProperty('--color5', color5);
+        }
+    </script>
+</body>
+</html>

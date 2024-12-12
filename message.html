@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inbox - Messages</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 70%;
+            max-width: 900px;
+            height: 80vh;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            .header {
+            background-color: blue;
+            color: white;
+            padding: 5px;
+            text-align: center;
+            width: 100%;
+        }
+
+        }
+
+
+        .header {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .Request {
+            text-align: right;
+            
+            color: blue;
+        }
+        .message-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 18px;
+        }
+
+        .message-item:hover {
+            background-color: #f1f1f1;
+        }
+
+        .sender-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .message-preview {
+            font-size: 16px;
+            color: #555;
+            max-width: 400px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .timestamp {
+            font-size: 14px;
+            color: #888;
+        }
+
+        .message-item:last-child {
+            border-bottom: none;
+        }
+
+        .message-item.active {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">Inbox - Messages</div>
+<br><br><br><br>
+<div class="Request">Requests</div>
+<br><br>
+        <!-- Message 1 -->
+        <div class="message-item" onclick="openMessage('Nitin Rawat')">
+            <div class="sender-name">Nitin Rawat</div>
+            <div class="message-preview">Hey! How's everything going?</div>
+            <div class="timestamp">9:34 PM</div>
+        </div>
+
+        <!-- Message 2 -->
+        <div class="message-item" onclick="openMessage('Syamantak Roy')">
+            <div class="sender-name">Syamantak Roy</div>
+            <div class="message-preview">I'm good, thanks! Are you coming to the event?</div>
+            <div class="timestamp">8:35 AM</div>
+        </div>
+
+        <!-- Message 3 -->
+        <div class="message-item" onclick="openMessage('Saksham Katoch')">
+            <div class="sender-name">Saksham Katoch</div>
+            <div class="message-preview">Congratulations on your promotion!</div>
+            <div class="timestamp">12:36 PM</div>
+        </div>
+
+        <!-- Message 4 -->
+        <div class="message-item" onclick="openMessage('Shristi Data')">
+            <div class="sender-name">Shristi Data</div>
+            <div class="message-preview">Please don't fire me:((</div>
+            <div class="timestamp">6:37 PM</div>
+        </div>
+
+        <!-- Message 5 -->
+        <div class="message-item" onclick="openMessage('Narendra Modi')">
+            <div class="sender-name">Narendra Modi</div>
+            <div class="message-preview">Can you send me the report by tomorrow?</div>
+            <div class="timestamp">12:38 PM</div>
+        </div>
+
+    </div>
+
+    <script>
+        function openMessage(senderName) {
+            alert("Opening message conversation with " + senderName);
+            // Redirect to the message detail page or update the content of the page to show the selected conversation
+        }
+    </script>
+
+</body>
+</html>

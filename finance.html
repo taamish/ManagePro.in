@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Pro.in</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 20px;
+            height: 800px;
+        }
+
+        .section {
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .section h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .section p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .section button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .section button:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            text-align: center;
+            background-color: transparent;
+        }
+        
+
+         th,td {
+            
+            text-align: left;
+            padding: 10px;
+            border: none;
+
+        }
+
+        th {
+            background-color: transparent;
+            color: #333;
+            font-weight: bold;
+        }
+
+        td.status {
+            text-align: center;
+            
+        }
+       
+        td.status span {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-size: 14px;
+            color: white;
+        }
+
+        td.status span.approved {
+            margin-right: 80%;
+            background-color: blue;
+        }
+        td.status span.green {
+            margin-right: 70%;
+            background-color: green;
+        }
+
+        td.status span.pending {
+            margin-right: 70%;
+
+            background-color: red;
+        }
+
+        td.status span.rejected {
+            margin-right: 75%;
+
+            background-color: red;
+        }
+
+        td.status span:hover {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Finances</h1>
+    </div>
+    
+    <div class="container">
+        <div class="section">
+            <h3>Payroll Management</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nitin Rawat</td>
+                        <td>2024-12-10</td>
+                        <td class="status"><span class="approved">Approved</span></td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Syamantak Roy</td>
+                        <td>2024-12-09</td>
+                        <td class="status"><span class="pending">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td>Shristi Data</td>
+                        <td>2024-12-08</td>
+                        <td class="status"><span class="approved">Approved</span></td>
+                    
+                    </tr>
+                    <tr>
+                        <td>Saksham Katoch</td>
+                        <td>2024-12-07</td>
+                        <td class="status"><span class="rejected">Pending</span></td>
+            
+                    </tr>
+                </tbody>
+            </table>
+            <button>Access Payroll</button>
+        </div>
+        <div class="section">
+            <h3>Reimbursements</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Particulars</th>
+                        <th>Date</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Travel Expense</td>
+                        <td>2024-10-10</td>
+                        <td class="status"><span class="green">8000</span></td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Accomodation</td>
+                        <td>2024-11-09</td>
+                        <td class="status"><span class="green">4000</span></td>
+                    </tr>
+                    <tr>
+                        <td>Office Supplies</td>
+                        <td>2024-11-08</td>
+                        <td class="status"><span class="green">12000</span></td>
+                    </tr>
+                    <tr>
+                        <td>Internet Bills</td>
+                        <td>2024-12-01</td>
+                        <td class="status"><span class="green">3500</span></td>
+            
+                    </tr>
+                </tbody>
+            </table>
+            
+            <button>Access Reimbursements</button>
+        </div>
+        <div class="section">
+            <h3>Loan Management</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Particulars</th>
+                        
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Salary Advances</td>
+                        
+                        <td class="status"><span class="green">25000</span></td>
+                    </tr>
+                    <tr>
+                        <td>Personal Loans</td>
+                       
+                        <td class="status"><span class="green">5000</span></td>
+                    </tr>
+                    <tr>
+                        <td>Emergency Funds</td>
+                       
+                        <td class="status"><span class="green">1000</span></td>
+                    </tr>
+                    <tr>
+                        <td>Retirement Fund Loans</td>
+                        
+                        <td class="status"><span class="green">50000</span></td>
+            
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <button>Access Loans</button>
+        </div>
+        <div class="section">
+            <h3>Tax Declarations</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Particulars</th>
+                        
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Salary Tax Deductions</td>
+                        
+                        <td class="status"><span class="green">50000</span></td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Tax Declaration Forms</td>
+                       
+                        <td class="status"><span class="green">20000</span></td>
+                    </tr>
+                    <tr>
+                        <td>Employee Benefits and Allowances</td>
+                       
+                        <td class="status"><span class="green">15000</span></td>
+                    </tr>
+                    <tr>
+                        <td>Reimbursement of Tax-Free Allowances</td>
+                        
+                        <td class="status"><span class="green">25000</span></td>
+                        
+            
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <button>Access Tax Declarations</button>
+        </div>
+    </div>
+</body>
+</html>

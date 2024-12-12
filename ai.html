@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Dislike Chat</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #ecf0f1;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .sidebar {
+      width: 260px;
+      background-color: #34495e;
+      color: #fff;
+      padding: 30px 20px;
+      box-sizing: border-box;
+      transition: width 0.3s ease;
+      position: relative;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 24px;
+    }
+
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      padding: 15px;
+      margin-bottom: 15px;
+      background-color: #2c3e50;
+      text-align: center;
+      cursor: pointer;
+      border-radius: 8px;
+      font-size: 18px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .sidebar ul li:hover {
+      background-color: #1abc9c;
+      transform: scale(1.05);
+    }
+
+    .main-content {
+      flex-grow: 1;
+      padding: 20px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chat-board, .faq {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      height: 100%;
+      flex-grow: 1;
+    }
+
+    .chat-board h2, .faq h2 {
+      margin-top: 0;
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #34495e;
+    }
+
+    .faq ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .faq ul li {
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+
+    .faq ul li span {
+      font-weight: bold;
+    }
+
+    .chat-area {
+      height: 400px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow-y: auto;
+      padding: 10px;
+      margin-bottom: 20px;
+      background-color: #f9f9f9;
+      box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .chat-area p {
+      margin: 10px 0;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .user-input-area {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .user-input {
+      width: 80%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      font-size: 16px;
+      margin-right: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .user-input:focus {
+      border-color: #1abc9c;
+      outline: none;
+    }
+
+    .send-btn {
+      padding: 10px 20px;
+      background-color: #1abc9c;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s, transform 0.2s ease;
+    }
+
+    .send-btn:hover {
+      background-color: #16a085;
+      transform: scale(1.1);
+    }
+
+    .send-btn:active {
+      background-color: #1abc9c;
+      transform: scale(1);
+    }
+
+    .bottom-bar {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #34495e;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .bottom-bar input,
+    .bottom-bar button {
+      margin: 0 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="sidebar">
+      <h2>AI Dislike Chat</h2>
+      <ul>
+        <li id="chatWithAIBtn">Chat with AI</li>
+        <li id="faqBtn">FAQ</li>
+      </ul>
+    </div>
+
+    <div class="main-content">
+        <link rel="stylesheet" href="scriptt.js">
+      <div class="chat-board" id="chatBoard">
+        <h2>Chat with AI</h2>
+        <div class="chat-area" id="chatArea">
+          <!-- Chat messages will appear here -->
+        </div>
+        <div class="user-input-area">
+          <input type="text" id="userInput" class="user-input" placeholder="Type your message..." />
+          <button class="send-btn" onclick="sendMessage()">Send</button>
+        </div>
+      </div>
+
+      <div class="faq" id="faqSection" style="display:none;">
+        <h2>Frequently Asked Questions</h2>
+        <ul>
+          <br><li><span>Q:</span> What is Pro.AI?</li>
+          <li><span>A:</span> It's a platform where users can chat with an AI designed to simulate conversations on various topics.</li>
+          <li><span>Q:</span> How does the AI work?</li>
+          <li><span>A:</span> The AI uses advanced machine learning models to understand and respond to user input based on previous interactions.</li>
+          <li><span>Q:</span> Can I ask the AI anything?</li>
+          <li><span>A:</span> Yes, you can ask a wide range of questions. However, the AI may not always provide perfect responses.
+        <br><br><b>Q:</b> How do I check the number of leaves I have left?<br>
+        <br><b>A:</b> Login into the application open the dashboard and visit the 'Leave Summary' section.
+        <br><br><b>Q:</b> How do I access payrolls?
+        <br><br><b>A:</b> To access the payrolls menugo to categories click on the finances optionthen click on access payrolls button.
+        
+    </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <script>
+    // Toggle between Chat and FAQ
+    document.getElementById("chatWithAIBtn").onclick = function() {
+      document.getElementById("chatBoard").style.display = "block";
+      document.getElementById("faqSection").style.display = "none";
+    }
+
+    document.getElementById("faqBtn").onclick = function() {
+      document.getElementById("chatBoard").style.display = "none";
+      document.getElementById("faqSection").style.display = "block";
+    }
+
+    // Pre-prompts the AI with some HR-related questions
+    const hrPrompts = [
+      "What is employee engagement?",
+      "How can we improve team collaboration?",
+      "What are the steps for performance management?",
+      "What strategies can be used to retain top talent?",
+      "How do you handle conflict in the workplace?"
+    ];
+
+    // Display AI response for HR-related questions
+    function sendMessage() {
+      const userInput = document.getElementById("userInput").value;
+      if (userInput.trim() !== "") {
+        const chatArea = document.getElementById("chatArea");
+
+        // Add user message to chat area
+        const userMessage = document.createElement("p");
+        userMessage.textContent = "You: " + userInput;
+        chatArea.appendChild(userMessage);
+
+        // Simulate AI response for HR-related prompts
+        let aiResponse = "AI: I'm not sure how to answer that right now.";
+        if (hrPrompts.includes(userInput.trim())) {
+          aiResponse = `AI: Here's an answer to your question on HR: ${userInput.trim()} - This is how we approach it in HR practices.`;
+        }
+
+        const aiMessage = document.createElement("p");
+        aiMessage.textContent = aiResponse;
+        chatArea.appendChild(aiMessage);
+
+        // Scroll to the bottom
+        chatArea.scrollTop = chatArea.scrollHeight;
+
+        // Clear input field
+        document.getElementById("userInput").value = "";
+      }
+    }
+
+    // Mobile-specific input handling
+    function sendMessageMobile() {
+      const userInputMobile = document.getElementById("userInputMobile").value;
+      if (userInputMobile.trim() !== "") {
+        const chatArea = document.getElementById("chatArea");
+
+        // Add user message to chat area
+        const userMessage = document.createElement("p");
+        userMessage.textContent = "You: " + userInputMobile;
+        chatArea.appendChild(userMessage);
+
+        // Simulate AI response for HR-related prompts
+        let aiResponse = "AI: I'm not sure how to answer that right now.";
+        if (hrPrompts.includes(userInputMobile.trim())) {
+          aiResponse = `AI: Here's an answer to your question on HR: ${userInputMobile.trim()} - This is how we approach it in HR practices.`;
+        }
+
+        const aiMessage = document.createElement("p");
+        aiMessage.textContent = aiResponse;
+        chatArea.appendChild(aiMessage);
+
+        // Scroll to the bottom
+        chatArea.scrollTop = chatArea.scrollHeight;
+
+        // Clear input field
+        document.getElementById("userInputMobile").value = "";
+      }
+    }
+  </script>
+
+</body>
+</html>

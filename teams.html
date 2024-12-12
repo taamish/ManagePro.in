@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teams</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .header {
+            background-color: blue;
+            color: white;
+            padding: 5px;
+            text-align: center;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 48px; /* Increased size for heading */
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 40px; /* Increased gap between containers */
+            flex-wrap: nowrap; /* Prevent wrapping */
+            padding: 20px;
+            max-width: 1400px; /* Increased max-width for more space */
+            margin-top: 20px;
+        }
+
+        .team-member {
+            background-color: white;
+            border-radius: 15px; /* Slightly increased border-radius for a smoother look */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Enhanced shadow for a more pronounced effect */
+            width: 350px; /* Increased width */
+            height: 500px; /* Increased height */
+            padding: 40px; /* Increased padding */
+            text-align: center;
+            font-size: 20px; /* Increased font size */
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .team-member:hover {
+            transform: scale(1.05);
+        }
+
+        .team-member img {
+            width: 120px; /* Increased image size */
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .team-member h3 {
+            font-size: 26px; /* Increased name size */
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .team-member p {
+            margin: 15px 0; /* Increased spacing between paragraphs */
+        }
+
+        .team-member .role {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .team-member .goals {
+            color: #007bff;
+            font-size: 18px; /* Increased font size for goals */
+        }
+
+        .team-member .performance {
+            color: #28a745;
+            font-size: 18px; /* Increased font size for performance */
+        }
+
+        .team-member .team-leader {
+            color: #dc3545;
+            font-size: 18px; /* Increased font size for team leader info */
+        }
+
+        .team-member .team-goals {
+            color: #17a2b8;
+            font-weight: bold;
+            font-size: 18px; /* Increased font size for team goals */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Teams</h1>
+    </div>
+    
+
+    <div class="container">
+        <!-- Team Member 1 -->
+        <div class="team-member">
+            <img src="img/img3.png" alt="Team Member 1">
+            <h3>Nitin Rawat</h3>
+            <p class="role">Team Leader</p>
+            <p><strong>Goals:</strong> Increase team collaboration and reduce project delivery time.</p>
+            <p class="performance">Performance: 85%</p>
+            <p class="team-leader">Leading Team A</p>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div class="team-member">
+            <img src="img/img5.png" alt="Team Member 2">
+            <h3>Syamantak Roy</h3>
+            <p class="role">Software Developer</p>
+            <p><strong>Goals:</strong> Develop and optimize new software features.</p>
+            <p class="performance">Performance: 75%</p>
+            <p class="team-goals">Team Goal: Feature X completion</p>
+        </div>
+
+        <!-- Team Member 3 -->
+        <div class="team-member">
+            <img src="img/img2.jpg" alt="Team Member 3">
+            <h3>Saksham Katoch</h3>
+            <p class="role">Project Manager</p>
+            <p><strong>Goals:</strong> Ensure projects meet deadlines and budget.</p>
+            <p class="performance">Performance: 90%</p>
+            <p class="team-goals">Team Goal: Reduce project delays by 10%</p>
+        </div>
+
+        <!-- Team Member 4 -->
+        <div class="team-member">
+            <img src="img/img4.jpg" alt="Team Member 4">
+            <h3>Shristi Data</h3>
+            <p class="role">HR Associate</p>
+            <p><strong>Goals:</strong> Enhance employee engagament and streamline recruitment process.</p>
+            <p class="performance">Performance: 80%</p>
+            <p class="team-goals">Team Goal: Reduce time-to-hire by 15%</p>
+        </div>
+    </div>
+
+</body>
+</html>
